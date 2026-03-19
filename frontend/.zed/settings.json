@@ -1,48 +1,51 @@
 {
-	"lsp": {
-		"biome": {
-			"settings": {
-				"config_path": "./biome.json"
-			}
-		},
-		"vscode-css-language-server": {
-			"settings": {
-				"css": {
-					"lint": {
-						"unknownAtRules": "ignore"
-					}
-				}
-			}
-		}
-	},
-	"languages": {
-		"JavaScript": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
-		},
-		"TypeScript": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			},
-			"language_servers": ["biome", "vtsls", "tailwindcss-language-server"]
-		},
-		"TSX": {
-			"formatter": { "language_server": { "name": "biome" } },
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			},
-			"language_servers": ["biome", "vtsls", "tailwindcss-language-server"]
-		},
-		"CSS": {
-			"language_servers": ["vscode-css-language-server", "tailwindcss-language-server"]
-		},
-		"JSON": { "formatter": { "language_server": { "name": "biome" } } },
-		"JSONC": { "formatter": { "language_server": { "name": "biome" } } }
-	}
+  "lsp": {
+    "biome": {
+      "settings": {
+        "config_path": "./biome.json"
+      }
+    },
+    "vscode-css-language-server": {
+      "settings": {
+        "css": {
+          "lint": {
+            "unknownAtRules": "ignore"
+          }
+        }
+      }
+    }
+  },
+  "languages": {
+    "JavaScript": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
+    "TypeScript": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      },
+      "language_servers": ["biome", "vtsls", "tailwindcss-language-server"]
+    },
+    "TSX": {
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      },
+      "language_servers": ["biome", "vtsls", "tailwindcss-language-server"]
+    },
+    "CSS": {
+      "language_servers": [
+        "vscode-css-language-server",
+        "tailwindcss-language-server"
+      ]
+    },
+    "JSON": { "formatter": { "language_server": { "name": "biome" } } },
+    "JSONC": { "formatter": { "language_server": { "name": "biome" } } }
+  }
 }
