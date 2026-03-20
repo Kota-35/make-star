@@ -6,17 +6,17 @@ help: ## ヘルプを表示
 generate: ## OpenAPI からコードを生成
 	go tool oapi-codegen -config=oapi-codegen.yml ../api/openapi.yaml
 
-run: ## サーバーを起動
-	go run ./cmd/server/
-
-dev: ## ホットリロードで起動
+dev: generate ## ホットリロードで起動
 	go tool air -c .air.toml
 
-build: ## バイナリをビルド
+build: generate ## バイナリをビルド
 	go build -o bin/server ./cmd/server/
 
-lint: ## 静的解析を実行
+run: generate ## サーバーを起動
+	go run ./cmd/server/
+
+lint: generate ## 静的解析を実行
 	go vet ./...
 
-test: ## テストを実行
+test: generate ## テストを実行
 	go test ./...
