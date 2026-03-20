@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://www.schemastore.org/sqlc-2.0.json
+# NOTE: https://docs.sqlc.dev/en/stable/reference/config.html#version-2
+version: "2"
+sql:
+  - engine: postgresql
+    schema: "database/migrations"
+    queries: "database/queries"
+    gen:
+      go:
+        emit_interface: true # JSONタグを生成
+        emit_json_tags: true # Querier interfaceを生成
+        package: "db"
+        out: "database/sqlc"
