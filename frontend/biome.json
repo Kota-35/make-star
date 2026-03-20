@@ -26,6 +26,9 @@
           "level": "error",
           "fix": "safe"
         }
+      },
+      "a11y": {
+        "useSemanticElements": "error"
       }
     },
     "domains": {
