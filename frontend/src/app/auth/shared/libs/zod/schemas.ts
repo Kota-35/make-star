@@ -15,3 +15,10 @@ export const signupFormFieldsSchema = z.object({
 });
 
 export type SignupFormFields = z.infer<typeof signupFormFieldsSchema>;
+
+export const signinFormFieldsSchema = z.object({
+	email: z.email("メールアドレスを入力してください"),
+	password: z.string().min(1, "パスワードを入力してください"),
+});
+
+export type SigninFormFields = z.infer<typeof signinFormFieldsSchema>;

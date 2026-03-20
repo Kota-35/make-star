@@ -1,13 +1,12 @@
 "use client";
 
 import { Eye, EyeOff, Loader2 } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { useSignupForm } from "./_.hook";
+import { useSigninForm } from "./_.hook";
 
-export const SignupForm = () => {
+export const SigninForm = () => {
   const {
     handleFormOnSubmit,
     register,
@@ -15,17 +14,15 @@ export const SignupForm = () => {
     isSubmitPending,
     showPassword,
     toggleShowPassword,
-    agreedToTerms,
-    setAgreedToTerms,
-    handleToSigninFormOnClick,
-  } = useSignupForm();
+    handleToSignupFormOnClick,
+  } = useSigninForm();
 
   return (
-    <div className="flex h-full items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center">
       <div className="flex w-full max-w-md flex-col gap-6 px-4">
         {/* Header */}
         <div className="text-center">
-          <h1 className="mb-1 font-bold text-3xl">アカウントを作成</h1>
+          <h1 className="mb-1 font-bold text-3xl">ログイン</h1>
         </div>
 
         {/* Form */}
@@ -33,38 +30,6 @@ export const SignupForm = () => {
           {errors.root?.message && (
             <p className="text-destructive text-xs">{errors.root.message}</p>
           )}
-
-          {/* Name row */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="flex flex-col gap-1.5">
-              <Label htmlFor="lastName">姓</Label>
-              <Input
-                id="lastName"
-                placeholder="山田"
-                aria-invalid={!!errors.lastName}
-                {...register("lastName")}
-              />
-              {errors.lastName && (
-                <p className="text-destructive text-xs">
-                  {errors.lastName.message}
-                </p>
-              )}
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <Label htmlFor="firstName">名</Label>
-              <Input
-                id="firstName"
-                placeholder="太郎"
-                aria-invalid={!!errors.firstName}
-                {...register("firstName")}
-              />
-              {errors.firstName && (
-                <p className="text-destructive text-xs">
-                  {errors.firstName.message}
-                </p>
-              )}
-            </div>
-          </div>
 
           {/* Email */}
           <div className="flex flex-col gap-1.5">
@@ -88,7 +53,7 @@ export const SignupForm = () => {
               <Input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                placeholder="8文字以上"
+                placeholder="パスワードを入力"
                 aria-invalid={!!errors.password}
                 {...register("password")}
               />
@@ -115,52 +80,30 @@ export const SignupForm = () => {
             )}
           </div>
 
-          {/* Terms checkbox */}
-          <div className="flex items-center gap-2">
-            <Checkbox
-              id="terms"
-              checked={agreedToTerms}
-              onCheckedChange={(checked) => setAgreedToTerms(checked === true)}
-            />
-            <label
-              htmlFor="terms"
-              className="cursor-pointer text-sm leading-none"
-            >
-              <a href="/t/terms" className="text-primary hover:underline">
-                利用規約
-              </a>
-              と
-              <a href="/t/privacy" className="text-primary hover:underline">
-                プライバシーポリシー
-              </a>
-              に同意します
-            </label>
-          </div>
-
           {/* Submit */}
           <button
             type="submit"
-            disabled={isSubmitPending || !agreedToTerms}
+            disabled={isSubmitPending}
             className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-2.5 font-medium text-primary-foreground text-sm transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitPending ? (
               <>
                 <Loader2 className="size-4 animate-spin" aria-hidden />
-                送信中
+                ログイン中
               </>
             ) : (
-              "アカウントを作成"
+              "ログイン"
             )}
           </button>
 
           <p className="text-center text-muted-foreground text-sm">
-            すでにアカウントをお持ちですか？{" "}
+            アカウントをお持ちでないですか？{" "}
             <button
               type="button"
               className="text-primary hover:underline"
-              onClick={handleToSigninFormOnClick}
+              onClick={handleToSignupFormOnClick}
             >
-              ログイン
+              新規登録
             </button>
           </p>
         </form>
@@ -196,7 +139,7 @@ export const SignupForm = () => {
               fill="#EA4335"
             />
           </svg>
-          Googleで登録
+          Googleでログイン
         </button>
       </div>
     </div>

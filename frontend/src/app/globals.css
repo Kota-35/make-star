@@ -2,19 +2,21 @@
 
 :root {
   --background: #ffffff;
+  --surface: #f9f9f9;
   --foreground: #171717;
   --primary: #2563eb;
   --primary-foreground: #ffffff;
-  --muted-foreground: #6b7280;
   --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
   --input: #e5e7eb;
-  --ring: #2563eb;
   --border: #e5e7eb;
+  --ring: #2563eb;
   --destructive: #ef4444;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -30,12 +32,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --muted: #1f2937;
-    --muted-foreground: #9ca3af;
-    --input: #374151;
-    --border: #374151;
+    --background: #09090b;
+    --surface: #18181b;
+    --foreground: #fafafa;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --muted: #18181b;
+    --muted-foreground: #a1a1aa;
+    --input: #27272a;
+    --border: #3f3f46;
+    --ring: #3b82f6;
+    --destructive: #f87171;
   }
 }
 

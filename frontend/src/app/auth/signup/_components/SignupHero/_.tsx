@@ -62,7 +62,7 @@ const FeatureItem = ({
   description: string;
 }) => (
   <li className="flex gap-4">
-    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white/15">
+    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white/15 dark:bg-white/10">
       {icon}
     </div>
     <div className="space-y-1">
