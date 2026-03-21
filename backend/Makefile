@@ -26,16 +26,16 @@ test: generate ## テストを実行
 
 # ----- DB Migration (goose) -----
 migrate-up: ## マイグレーションを実行
-	go tool goose -dir database/migrations postgres "$(DATABASE_URL)" up
+	go tool goose -dir database/migrations postgres '$(DATABASE_URL)' up
 
 migrate-down: ## 直前のマイグレーションをロールバック
-	go tool goose -dir database/migrations postgres "$(DATABASE_URL)" down
+	go tool goose -dir database/migrations postgres '$(DATABASE_URL)' down
 
 migrate-status: ## マイグレーションの状態を確認
-	go tool goose -dir database/migrations postgres "$(DATABASE_URL)" status
+	go tool goose -dir database/migrations postgres '$(DATABASE_URL)' status
 
 migrate-reset: ## 全マイグレーションをロールバック
-	go tool goose -dir database/migrations postgres "$(DATABASE_URL)" reset
+	go tool goose -dir database/migrations postgres '$(DATABASE_URL)' reset
 
 # NOTE: `make migrate-create <name>` のようにスペースで引数を渡せるようにするためのトリック
 # `make migrate-create create_users_table` と実行すると:
